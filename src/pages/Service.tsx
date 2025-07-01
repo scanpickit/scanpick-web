@@ -1,18 +1,18 @@
 // app/page.tsx or pages/index.tsx (depending on Next.js version)
-'use client';
+"use client";
 
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
-import Image from 'next/image';
-import clsx from 'clsx';
-import services from '../../public/data/Services';
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import Image from "next/image";
+import clsx from "clsx";
+import services from "../../public/data/Services";
 
 const AnimatedIcon = ({ title }: { title: string }) => {
   return (
     <motion.div
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       className="w-full h-full flex items-center justify-center text-white text-lg font-semibold"
     >
       {title}
@@ -76,18 +76,25 @@ export default function Home() {
   return (
     <div className="bg-black text-white px-4 md:px-20 py-20 space-y-20">
       <div className="text-center">
-        <p className="text-[10px] border border-neutral-700 px-3 py-1 rounded-md inline-block mb-4">Our Services</p>
+        <p className="text-[10px] border border-neutral-700 px-3 py-1 rounded-md inline-block mb-4">
+          Our Services
+        </p>
         <h1 className="text-2xl md:text-3xl font-semibold mb-4 leading-tight">
           Tech Solutions That Take Your Business to the Next Level
         </h1>
         <p className="text-gray-400 text-sm md:text-base max-w-3xl mx-auto">
-          We build vending machines, automate workflows, ship clean code, and design the hardware to back it all.
+          We build vending machines, automate workflows, ship clean code, and
+          design the hardware to back it all.
         </p>
       </div>
 
       <div className="flex flex-col items-center gap-16">
         {services.map((service, index) => (
-          <ServiceCard key={service.id} service={service} reverse={index % 2 !== 0} />
+          <ServiceCard
+            key={service.id}
+            service={service}
+            reverse={index % 2 !== 0}
+          />
         ))}
       </div>
     </div>
@@ -119,19 +126,14 @@ function ServiceCard({ service, reverse }: CardProps) {
           : {}
       }
       className={clsx(
-        "flex flex-col md:flex-row items-center gap-6 md:gap-12 px-4 py-8 md:px-10 md:py-12 rounded-2xl max-w-6xl w-full  shadow-md",
-        reverse && "md:flex-row-reverse"
-      )}
+  "flex flex-col items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:gap-12 lg:px-10 lg:py-12 max-w-6xl w-full rounded-2xl shadow-md",
+  reverse ? "lg:flex-row-reverse lg:items-center" : "lg:flex-row lg:items-center"
+)}
+
       // bg-neutral-950
     >
       {/* Left: Image or Animation */}
-      <div
-        className="relative bg-neutral-900 rounded-xl overflow-hidden shadow-md mx-auto"
-        style={{
-          width: "374.5px",
-          height: "300.9px",
-        }}
-      >
+      <div className="relative w-full max-w-[90%] sm:max-w-[400px] md:max-w-[320px] aspect-[4/3] bg-neutral-900 rounded-xl overflow-hidden shadow-md mx-auto md:mx-0">
         {service.animated ? (
           <AnimatedIcon title={service.title} />
         ) : (
@@ -140,7 +142,6 @@ function ServiceCard({ service, reverse }: CardProps) {
             alt={service.title}
             fill
             className="object-contain w-full h-full rounded-lg"
-            sizes="(max-width: 768px) 90vw, 374px"
           />
         )}
       </div>
@@ -170,5 +171,3 @@ function ServiceCard({ service, reverse }: CardProps) {
     </motion.div>
   );
 }
-
-
