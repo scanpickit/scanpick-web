@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-const containerVariants = {
+// Explicitly type the variants
+const containerVariants: Variants = {
   hidden: {},
   show: {
     transition: {
@@ -14,7 +15,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: {
     opacity: 0,
     y: 40,
@@ -33,13 +34,18 @@ const itemVariants = {
 
 export default function NotFound() {
   return (
-    <main className="relative min-h-screen bg-scanpick-black text-white flex items-center justify-center px-4 overflow-hidden">
-      {/* Background Blur Fade */}
+    <motion.main
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className="relative min-h-screen bg-scanpick-black text-white flex items-center justify-center px-4 overflow-hidden"
+    >
+      {/* Background Layer */}
       <motion.div
-        initial={{ opacity: 0, filter: "blur(40px)" }}
-        animate={{ opacity: 1, filter: "blur(0px)" }}
+        initial={{ opacity: 0, scale: 1.05 }}
+        animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className="absolute inset-0 bg-black z-0"
+        className="absolute inset-0 z-0 bg-gradient-radial from-scanpick-red/10 via-transparent to-black"
       />
 
       {/* Foreground Content */}
@@ -74,18 +80,22 @@ export default function NotFound() {
           variants={itemVariants}
           className="text-gray-500 text-md"
         >
-          This page seems to be missing! Let’s get you back on track.
+          This page seems to be missing! Let's get you back on track.
         </motion.p>
 
-        <motion.div variants={itemVariants}>
+        <motion.div
+          variants={itemVariants}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
           <Link
             href="/"
-            className="inline-flex items-center bg-scanpick-red text-white px-6 py-3 rounded-md hover:bg-[#8f1e1e] transition-all font-medium"
+            className="inline-flex items-center bg-scanpick-red/50 text-white px-6 py-3 rounded-md hover:bg-[#8f1e1e] transition-all font-medium"
           >
             Go Back Home <ArrowUpRight className="ml-2 w-4 h-4" />
           </Link>
         </motion.div>
       </motion.div>
-    </main>
+    </motion.main>
   );
 }

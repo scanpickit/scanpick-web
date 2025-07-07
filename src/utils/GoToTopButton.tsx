@@ -1,16 +1,16 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, Variants } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 
-const buttonVariants = {
+const buttonVariants: Variants = {
   hidden: { opacity: 0, y: 80, scale: 0.8 },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { type: 'spring', stiffness: 400, damping: 20 },
+    transition: { type: 'spring' as const, stiffness: 400, damping: 20 },
   },
   exit: {
     opacity: 0,
