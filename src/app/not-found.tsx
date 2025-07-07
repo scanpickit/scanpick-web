@@ -33,7 +33,7 @@ const itemVariants = {
 
 export default function NotFound() {
   return (
-    <main className="relative min-h-screen bg-black text-white flex items-center justify-center px-4 overflow-hidden">
+    <main className="relative min-h-screen bg-scanpick-black text-white flex items-center justify-center px-4 overflow-hidden">
       {/* Background Blur Fade */}
       <motion.div
         initial={{ opacity: 0, filter: "blur(40px)" }}
@@ -80,7 +80,7 @@ export default function NotFound() {
         <motion.div variants={itemVariants}>
           <Link
             href="/"
-            className="inline-flex items-center bg-[#A62929] text-white px-6 py-3 rounded-md hover:bg-[#8f1e1e] transition-all font-medium"
+            className="inline-flex items-center bg-scanpick-red text-white px-6 py-3 rounded-md hover:bg-[#8f1e1e] transition-all font-medium"
           >
             Go Back Home <ArrowUpRight className="ml-2 w-4 h-4" />
           </Link>
