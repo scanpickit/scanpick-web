@@ -24,83 +24,98 @@ A modern landing page for ScanPick, built with Next.js, TypeScript, and Tailwind
 ### Prerequisites
 
 - Node.js 18+
-- npm or yarn
+- npm 
 
 ### Installation
 
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
-cd cosmic-red-star-landing-main
+git clone https://github.com/GauravKesh/scanpick-web.git
+cd scanpick-web
 ```
-
-2. Install dependencies:
+Install dependencies:
 
 ```bash
 npm install
-# or
-yarn install
 ```
-
-3. Run the development server:
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
+Open http://localhost:3000 in your browser.
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-## Project Structure
-
+Available Scripts
 ```
-src/
-├── app/                 # Next.js app directory
-│   ├── layout.tsx      # Root layout
-│   ├── page.tsx        # Home page
-│   ├── contact/        # Contact page
-│   └── globals.css     # Global styles
-├── components/         # React components
-│   ├── ui/            # Shadcn/ui components
-│   ├── Header.tsx     # Navigation header
-│   ├── Hero.tsx       # Hero section
-│   ├── StarField.tsx  # Animated background
-│   └── ...           # Other components
-└── lib/               # Utility functions
+npm run dev - Start development server
+
+npm run build - Build for production
+
+npm run start - Start production server
+
+npm run lint - Run ESLint
 ```
+## Customization Colors
+#### The project uses a custom ScanPick color palette defined in tailwind.config.ts:
 
-## Available Scripts
+- scanpick-red: Primary brand color
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+- scanpick-black: Background color
 
-## Customization
+- scanpick-white: Text color
 
-### Colors
+- scanpick-gray: Secondary elements
 
-The project uses a custom ScanPick color palette defined in `tailwind.config.ts`:
-
-- `scanpick-red`: Primary brand color
-- `scanpick-black`: Background color
-- `scanpick-white`: Text color
-- `scanpick-gray`: Secondary elements
-
-### Animations
-
+#### Animations
 Custom animations are defined in the Tailwind config:
 
-- `star-field`: Animated star background
-- `scroll`: Logo carousel animation
-- `fade-in-up`: Content entrance animations
+- star-field: Animated star background
 
-## Deployment
+- scroll: Logo carousel animation
 
-The project can be deployed to Vercel, Netlify, or any other platform that supports Next.js.
+- fade-in-up: Content entrance animations
 
-## License
+# Deployment
+- The project can be deployed to Vercel.
 
-This project is private and proprietary to ScanPick.
+# Contributing
+We welcome contributions from team members! Follow these steps:
+
+1. Clone the Repository
+```bash
+git clone https://github.com/GauravKesh/scanpick-web.git
+cd scanpick-web
+```
+2. Create a Feature Branch
+
+```bash
+git checkout -b feature/<your-feature-name>
+```
+3. Make Changes and Test
+- Implement your changes.
+- Test with development server:
+
+```bash
+npm run dev
+```
+***Verify the production build is successful:***
+
+```bash
+npm run build
+```
+**❗ Do not raise a PR if the build fails. Fix all errors/warnings before proceeding.**
+
+4. Push and Create a Pull Request
+```bash
+git add .
+git commit -m "feat: <brief description>"
+git push origin feature/<your-feature-name>
+```
+
+- Go to the GitHub repo.
+
+- Open a pull request from your branch to main.
+
+- Add a clear description and tag any relevant issues.
+- Request for review
