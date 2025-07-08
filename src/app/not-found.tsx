@@ -73,7 +73,7 @@ export default function NotFound() {
           variants={itemVariants}
           className="text-gray-400 text-lg"
         >
-          YES, humans usually get lost.
+          We build machines. They don’t get lost. You just did. Let’s fix that.
         </motion.p>
 
         <motion.p

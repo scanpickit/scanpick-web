@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Mail, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { useRef } from "react";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ const ContactForm = () => {
     message: "",
   });
   const { toast } = useToast();
+  const hiddenFormRef = useRef<HTMLFormElement>(null);
+  const hiddenIframeRef = useRef<HTMLIFrameElement>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -27,20 +30,51 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the data to your backend
-    toast({
-      title: "Message sent!",
-      description: "We'll get back to you as soon as possible.",
-    });
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      message: "",
-    });
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "10de5356-276a-4cab-aabc-84ccf890cb70",
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "We'll get back to you as soon as possible.",
+        });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          phone: "",
+          message: "",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description:
+            "There was a problem submitting the form. Please try again later.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description:
+          "There was a problem submitting the form. Please try again later.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -48,14 +82,14 @@ const ContactForm = () => {
       {/* Title & Subtitle */}
       <div className="mb-10 text-center">
         <div className="mb-2">
-          <span className="inline-block px-4 py-1 rounded-lg bg-black text-white text-xs font-medium border border-white/10">
+          <span className="inline-block px-4 py-1 rounded-lg bg-background text-foreground text-xs font-medium border border-border">
             Contact
           </span>
         </div>
-        <h1 className="text-5xl md:text-6xl font-extrabold text-white mb-4">
+        <h1 className="text-5xl md:text-6xl font-extrabold text-foreground mb-4">
           Get in Touch with Us
         </h1>
-        <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
+        <p className="text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto">
           Have questions or need solutions? Let us know by filling out the form,
           and we'll be in touch!
         </p>
@@ -63,22 +97,22 @@ const ContactForm = () => {
 
       {/* Info Cards */}
       <div className="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
-        <div className="rounded-xl p-6 flex items-center gap-4 border border-white/10 bg-gradient-to-br from-[#A62929]/30 to-black/80 shadow-lg">
-          <div className="bg-[#A62929]/80 p-3 rounded-lg flex items-center justify-center">
-            <Mail className="w-6 h-6 text-white" />
+        <div className="rounded-xl p-6 flex items-center gap-4 border border-border bg-gradient-to-br from-primary/30 to-background/80 shadow-lg">
+          <div className="bg-primary/80 p-3 rounded-lg flex items-center justify-center">
+            <Mail className="w-6 h-6 text-foreground" />
           </div>
           <div>
-            <div className="text-white font-semibold text-lg">E-mail</div>
-            <div className="text-white/80 text-base">Contact@scanpick.in</div>
+            <div className="text-foreground font-semibold text-lg">E-mail</div>
+            <div className="text-foreground/80 text-base">Contact@scanpick.in</div>
           </div>
         </div>
-        <div className="rounded-xl p-6 flex items-center gap-4 border border-white/10 bg-gradient-to-br from-[#A62929]/30 to-black/80 shadow-lg">
-          <div className="bg-[#A62929]/80 p-3 rounded-lg flex items-center justify-center">
-            <Phone className="w-6 h-6 text-white" />
+        <div className="rounded-xl p-6 flex items-center gap-4 border border-border bg-gradient-to-br from-primary/30 to-background/80 shadow-lg">
+          <div className="bg-primary/80 p-3 rounded-lg flex items-center justify-center">
+            <Phone className="w-6 h-6 text-foreground" />
           </div>
           <div>
-            <div className="text-white font-semibold text-lg">Phone</div>
-            <div className="text-white/80 text-base">+91 80507 65537</div>
+            <div className="text-foreground font-semibold text-lg">Phone</div>
+            <div className="text-foreground/80 text-base">+91 80507 65537</div>
           </div>
         </div>
       </div>
@@ -86,11 +120,11 @@ const ContactForm = () => {
       {/* Form */}
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-3xl bg-black/80 rounded-2xl p-8 border border-white/10 shadow-xl flex flex-col gap-8"
+        className="w-full max-w-3xl bg-background/80 rounded-2xl p-8 border border-border shadow-xl flex flex-col gap-8"
       >
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <Label htmlFor="firstName" className="text-white">
+            <Label htmlFor="firstName" className="text-foreground">
               First Name
             </Label>
             <Input
@@ -100,11 +134,11 @@ const ContactForm = () => {
               onChange={handleChange}
               placeholder="Jane"
               required
-              className="bg-black border border-white/10 text-white placeholder:text-white/40"
+              className="bg-background border border-border text-foreground placeholder:text-foreground/40"
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="lastName" className="text-white">
+            <Label htmlFor="lastName" className="text-foreground">
               Last Name
             </Label>
             <Input
@@ -114,13 +148,13 @@ const ContactForm = () => {
               onChange={handleChange}
               placeholder="Smith"
               required
-              className="bg-black border border-white/10 text-white placeholder:text-white/40"
+              className="bg-background border border-border text-foreground placeholder:text-foreground/40"
             />
           </div>
         </div>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-white">
+            <Label htmlFor="email" className="text-foreground">
               Email
             </Label>
             <div className="relative">
@@ -132,13 +166,13 @@ const ContactForm = () => {
                 onChange={handleChange}
                 placeholder="Jane@mail.com"
                 required
-                className="bg-black border border-white/10 text-white placeholder:text-white/40 pr-10"
+                className="bg-background border border-border text-foreground placeholder:text-foreground/40 pr-10"
               />
-              <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-white/40" />
+              <Mail className="absolute right-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-foreground/40" />
             </div>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="phone" className="text-white">
+            <Label htmlFor="phone" className="text-foreground">
               Phone
             </Label>
             <Input
@@ -148,12 +182,12 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={handleChange}
               placeholder="+91 98568 88061"
-              className="bg-black border border-white/10 text-white placeholder:text-white/40"
+              className="bg-background border border-border text-foreground placeholder:text-foreground/40"
             />
           </div>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="message" className="text-white">
+          <Label htmlFor="message" className="text-foreground">
             Message
           </Label>
           <Textarea
@@ -164,16 +198,17 @@ const ContactForm = () => {
             placeholder="Hi, I am Jane. I want help with..."
             rows={4}
             required
-            className="bg-black border border-white/10 text-white placeholder:text-white/40 resize-none"
+            className="bg-background border border-border text-foreground placeholder:text-foreground/40"
           />
         </div>
         <Button
           type="submit"
-          className="w-full h-12 rounded-lg bg-[#A62929] text-white font-semibold text-lg hover:bg-[#922222] transition-colors"
+          className="w-full h-12 rounded-lg bg-primary text-white font-semibold text-lg hover:bg-accent transition-colors"
         >
           Submit Form
         </Button>
       </form>
+      
     </section>
   );
 };
