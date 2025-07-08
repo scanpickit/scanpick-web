@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { Instagram, Facebook, Linkedin, Twitter } from "lucide-react";
 
 // Links configuration - easy to modify and add new links
 const footerLinks = {
@@ -15,7 +16,7 @@ const footerLinks = {
     { name: "Home", href: "/" },
     // { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
-    // { name: "404", href: "/404" },
+    { name: "404", href: "/404" },
   ],
   socials: [
     { name: "Instagram", href: "#" },
@@ -57,22 +58,7 @@ export default function Footer() {
                   className="h-10 w-auto object-contain text-gray-100"
                 />
               </Link>
-              <p className="text-gray-300">
-                {companyInfo.tagline}
-              </p>
-              <p className="text-sm text-gray-400">
-                {companyInfo.emailPrompt}
-              </p>
-              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3">
-                <input
-                  type="email"
-                  placeholder={companyInfo.emailPlaceholder}
-                  className="px-4 py-2 bg-zinc-900 text-white rounded-md border border-zinc-700 focus:outline-none"
-                />
-                {/* <button className="bg-[#A62929] text-white px-5 py-2 rounded-md hover:bg-[#8f1e1e] transition-all">
-                SEND
-              </button> */}
-              </div>
+              <p className="text-gray-300">{companyInfo.tagline}</p>
             </div>
 
             {/* Links */}
@@ -92,25 +78,41 @@ export default function Footer() {
               {/* Pages Section */}
               <div>
                 <h3 className="font-semibold text-lg mb-2">Pages</h3>
-                <ul className="space-y-1">
+                <div className="flex flex-row items-center space-x-2">
                   {footerLinks.pages.map((page, index) => (
-                    <li key={index}>
-                      <Link href={page.href}>{page.name}</Link>
-                    </li>
+                    <>
+                      <Link
+                        key={page.name}
+                        href={page.href}
+                        className="transition-colors hover:text-[#A62929]"
+                      >
+                        {page.name}
+                      </Link>
+                      {index < footerLinks.pages.length - 1 && (
+                        <span className="mx-2">|</span>
+                      )}
+                    </>
                   ))}
-                </ul>
+                </div>
               </div>
 
               {/* Socials Section */}
               <div>
                 <h3 className="font-semibold text-lg mb-2">Socials</h3>
-                <ul className="space-y-1">
-                  {footerLinks.socials.map((social, index) => (
-                    <li key={index}>
-                      <a href={social.href}>{social.name}</a>
-                    </li>
-                  ))}
-                </ul>
+                <div className="flex flex-row space-x-4 mt-2">
+                  <a href="#" aria-label="Instagram">
+                    <Instagram className="w-6 h-6 hover:text-[#A62929] transition-colors" />
+                  </a>
+                  <a href="#" aria-label="Facebook">
+                    <Facebook className="w-6 h-6 hover:text-[#A62929] transition-colors" />
+                  </a>
+                  <a href="#" aria-label="Linkedin">
+                    <Linkedin className="w-6 h-6 hover:text-[#A62929] transition-colors" />
+                  </a>
+                  <a href="#" aria-label="Twitter">
+                    <Twitter className="w-6 h-6 hover:text-[#A62929] transition-colors" />
+                  </a>
+                </div>
               </div>
             </div>
           </div>

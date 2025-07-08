@@ -2,8 +2,18 @@
 
 import { Button } from "../ui/button";
 import StarField from "../animations/StarField";
+import { useRouter } from "next/navigation";
 
 const Hero = () => {
+  const router = useRouter();
+
+  const handleScrollToServices = () => {
+    const el = document.getElementById("services");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-scanpick-black">
       {/* Animated Star Field Background */}
@@ -36,13 +46,19 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-1000">
-          <Button variant="scanpick" size="xl" className="min-w-[160px]">
+          <Button
+            variant="scanpick"
+            size="xl"
+            className="min-w-[160px]"
+            onClick={() => router.push("/contact")}
+          >
             Get in touch →
           </Button>
           <Button
             variant="scanpick-outline"
             size="xl"
             className="min-w-[160px]"
+            onClick={handleScrollToServices}
           >
             View services
           </Button>

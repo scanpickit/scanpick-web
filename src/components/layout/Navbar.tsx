@@ -41,7 +41,9 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="/book"
+            href="https://calendly.com/YOUR-CALENDLY-USERNAME/YOUR-EVENT" // Replace with your actual Calendly link
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-[#A62929] hover:bg-red-600 text-white px-4 py-2 rounded-md transition-all duration-300"
           >
             Book a call
@@ -99,7 +101,9 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="/book"
+            href="https://calendly.com/YOUR-CALENDLY-USERNAME/YOUR-EVENT" // Replace with your actual Calendly link
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-2 bg-[#A62929] hover:bg-red-600 text-white px-6 py-3 rounded-lg text-center text-xl font-semibold transition-all duration-300"
           >
             Book a call

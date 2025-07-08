@@ -5,6 +5,8 @@ import "./globals.css";
 import GoToTopButton from "../utils/GoToTopButton";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
+import Providers from "../components/common/Providers";
+import SmoothScrollProvider from "../components/common/SmoothScrollProvider";
 
 const figtree = Figtree({
   subsets: ["latin"],
@@ -25,10 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${figtree.className} bg-scanpick-black text-white`}>
-        <Navbar />
-        {children}
-        <GoToTopButton />
-        <Footer />
+        <SmoothScrollProvider />
+        <Providers>
+          <Navbar />
+          {children}
+          <GoToTopButton />
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
