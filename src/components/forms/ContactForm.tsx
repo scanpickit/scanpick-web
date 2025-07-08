@@ -103,7 +103,9 @@ const ContactForm = () => {
           </div>
           <div>
             <div className="text-foreground font-semibold text-lg">E-mail</div>
-            <div className="text-foreground/80 text-base">Contact@scanpick.in</div>
+            <div className="text-foreground/80 text-base">
+              Contact@scanpick.in
+            </div>
           </div>
         </div>
         <div className="rounded-xl p-6 flex items-center gap-4 border border-border bg-gradient-to-br from-primary/30 to-background/80 shadow-lg">
@@ -208,7 +210,6 @@ const ContactForm = () => {
           Submit Form
         </Button>
       </form>
-      
     </section>
   );
 };
