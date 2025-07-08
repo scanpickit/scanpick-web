@@ -5,14 +5,15 @@ import LogoCarousel from "../components/common/LogoCarousel";
 import CTASection from "../components/sections/CTASection";
 import VendingSection from "../components/sections/Vending";
 
-
 function HomePage() {
   return (
     <div>
       <Hero />
       <LogoCarousel />
-      <VendingSection/>
-      <Service />
+      <VendingSection />
+      <div id="services">
+        <Service />
+      </div>
       <CTASection />
     </div>
   );
