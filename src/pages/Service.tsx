@@ -1,4 +1,3 @@
-// app/page.tsx or pages/index.tsx (depending on Next.js version)
 "use client";
 
 import { motion, useInView } from "framer-motion";
@@ -25,6 +24,7 @@ type Service = {
   title: string;
   description: string;
   features: string[];
+  active?:String;
   image?: string;
   animated?: boolean;
 };
@@ -126,9 +126,11 @@ function ServiceCard({ service, reverse }: CardProps) {
           : {}
       }
       className={clsx(
-  "flex flex-col items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:gap-12 lg:px-10 lg:py-12 max-w-6xl w-full rounded-2xl shadow-md",
-  reverse ? "lg:flex-row-reverse lg:items-center" : "lg:flex-row lg:items-center"
-)}
+        "flex flex-col items-center gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:gap-12 lg:px-10 lg:py-12 max-w-6xl w-full rounded-2xl shadow-md",
+        reverse
+          ? "lg:flex-row-reverse lg:items-center"
+          : "lg:flex-row lg:items-center"
+      )}
 
       // bg-neutral-950
     >
@@ -141,7 +143,7 @@ function ServiceCard({ service, reverse }: CardProps) {
             src={service.image || ""}
             alt={service.title}
             fill
-            className="object-contain w-full h-full rounded-lg"
+            className="object-cover scale-[1.1] w-full h-full transition-transform duration-300"
           />
         )}
       </div>
@@ -156,6 +158,9 @@ function ServiceCard({ service, reverse }: CardProps) {
         </h2>
         <p className="text-gray-400 text-sm md:text-base">
           {service.description}
+        </p>
+        <p className="text-gray-400 text-sm md:text-base">
+          {service.active}
         </p>
         <div className="flex flex-wrap gap-2 pt-3">
           {service.features.map((feature) => (
