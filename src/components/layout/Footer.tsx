@@ -16,7 +16,7 @@ const footerLinks = {
     { name: "Home", href: "/" },
     // { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
-    { name: "404", href: "/404" },
+    // { name: "404", href: "/404" },
   ],
   socials: [
     { name: "Instagram", href: "#" },
