@@ -22,7 +22,7 @@ const services: Service[] = [
       'Live Inventory Monitoring',
       'Smart Temperature Control',
     ],
-    image: '/services/1.png',
+    image: '/services/scanpick-machine.png',
   },
   {
     id: 2,
@@ -45,11 +45,14 @@ const services: Service[] = [
     description:
       'Full-stack web application development for startups and businesses.',
     features: [
-      'LLM-based Assistants',
+      'React js',
       'Multi-language Support',
+      'Next js',
       'SEO Optimized',
       'Admin Dashboards',
       'REST & GraphQL APIs',
+      'S3 Bucket',
+      'Node js'
     ],
     animated: false,
     image: '/services/webdev.webp',

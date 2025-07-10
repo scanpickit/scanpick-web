@@ -24,7 +24,7 @@ type Service = {
   title: string;
   description: string;
   features: string[];
-  active?:String;
+  active?: String;
   image?: string;
   animated?: boolean;
 };
@@ -135,7 +135,7 @@ function ServiceCard({ service, reverse }: CardProps) {
       // bg-neutral-950
     >
       {/* Left: Image or Animation */}
-      <div className="relative w-full max-w-[90%] sm:max-w-[400px] md:max-w-[320px] aspect-[4/3] bg-neutral-900 rounded-xl overflow-hidden shadow-md mx-auto md:mx-0">
+      <div className="relative w-full max-w-[90%] sm:max-w-[400px] md:max-w-[320px] aspect-[4/3] bg-scanpick-black rounded-xl overflow-hidden shadow-md mx-auto md:mx-0">
         {service.animated ? (
           <AnimatedIcon title={service.title} />
         ) : (
@@ -143,7 +143,11 @@ function ServiceCard({ service, reverse }: CardProps) {
             src={service.image || ""}
             alt={service.title}
             fill
-            className="object-cover scale-[1.1] w-full h-full transition-transform duration-300"
+            className={`w-full h-full transition-transform duration-300 ${
+              service.id !== 1
+                ? "scale-[1.1] object-cover"
+                : "scale-[1.4] object-contain"
+            }`}
           />
         )}
       </div>
@@ -151,7 +155,7 @@ function ServiceCard({ service, reverse }: CardProps) {
       {/* Right: Text */}
       <div className="flex-1 flex flex-col justify-center space-y-4">
         <p className="text-[10px] px-3 py-1 rounded-md border border-neutral-700 w-fit text-gray-400">
-          Vending Machines
+          Our Services
         </p>
         <h2 className="text-2xl md:text-3xl font-bold leading-snug text-white">
           {service.title}
@@ -159,9 +163,7 @@ function ServiceCard({ service, reverse }: CardProps) {
         <p className="text-gray-400 text-sm md:text-base">
           {service.description}
         </p>
-        <p className="text-gray-400 text-sm md:text-base">
-          {service.active}
-        </p>
+        <p className="text-gray-400 text-sm md:text-base">{service.active}</p>
         <div className="flex flex-wrap gap-2 pt-3">
           {service.features.map((feature) => (
             <span
