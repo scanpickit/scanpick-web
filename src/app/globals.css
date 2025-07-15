@@ -41,8 +41,8 @@
     --gradient-hero: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
     --gradient-card: linear-gradient(
       135deg,
-      rgba(255, 0, 0, 0.1) 0%,
-      rgba(255, 0, 0, 0.05) 100%
+      rgba(66, 14, 14, 0.642) 0%,
+      rgba(0, 0, 0, 0.986) 100%
     );
   }
 
