@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Instagram, Facebook, Linkedin, Twitter } from "lucide-react";
+import React from "react";
 
 // Links configuration - easy to modify and add new links
 const footerLinks = {
@@ -14,7 +15,7 @@ const footerLinks = {
   // ],
   pages: [
     { name: "Home", href: "/" },
-    // { name: "About", href: "/about" },
+    { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
     // { name: "404", href: "/404" },
   ],
@@ -80,9 +81,8 @@ export default function Footer() {
                 <h3 className="font-semibold text-lg mb-2">Pages</h3>
                 <div className="flex flex-row items-center space-x-2">
                   {footerLinks.pages.map((page, index) => (
-                    <>
+                    <React.Fragment key={page.name}>
                       <Link
-                        key={page.name}
                         href={page.href}
                         className="transition-colors hover:text-[#A62929]"
                       >
@@ -91,7 +91,7 @@ export default function Footer() {
                       {index < footerLinks.pages.length - 1 && (
                         <span className="mx-2">|</span>
                       )}
-                    </>
+                    </React.Fragment>
                   ))}
                 </div>
               </div>

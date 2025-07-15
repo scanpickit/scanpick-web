@@ -25,7 +25,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${figtree.className} bg-scanpick-black text-white`}>
         <SmoothScrollProvider />
         <Providers>

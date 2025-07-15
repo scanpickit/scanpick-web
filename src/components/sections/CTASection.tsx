@@ -5,7 +5,7 @@ const CTASection = () => {
   return (
     <section className="bg-black py-20 flex justify-center items-center">
       <div className="w-full flex justify-center">
-        <div className="w-full max-w-2xl rounded-2xl p-8 md:p-16 text-center border border-border shadow-xl bg-gradient-to-br from-primary/30 via-background/90 to-background/100">
+        <div className="w-full max-w-3xl rounded-2xl p-8 md:p-16 text-center border border-border shadow-xl bg-gradient-to-br from-primary/30 via-background/90 to-background/100">
           <h2 className="text-4xl md:text-5xl font-extrabold text-foreground mb-6 leading-tight">
             Let us build your Product
             <br />
