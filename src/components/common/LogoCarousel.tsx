@@ -16,7 +16,7 @@ const LogoCarousel = () => {
   return (
     <section className="bg-scanpick-black py-16 border-t border-gray-900">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="text-center mb-12"> 
+        <div className="text-center mb-12">
           <p className="text-scanpick-white/60 text-lg font-medium">
             Over 50+ business trust us
           </p>

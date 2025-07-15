@@ -11,11 +11,11 @@ const CustomCursor = ({ active }: { active: boolean }) => {
   useEffect(() => {
     // Check if device is mobile
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768 || 'ontouchstart' in window);
+      setIsMobile(window.innerWidth <= 768 || "ontouchstart" in window);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
 
     const onMouseMove = (e: MouseEvent) => {
       if (!isMobile) {
@@ -29,7 +29,7 @@ const CustomCursor = ({ active }: { active: boolean }) => {
 
     return () => {
       window.removeEventListener("mousemove", onMouseMove);
-      window.removeEventListener('resize', checkMobile);
+      window.removeEventListener("resize", checkMobile);
     };
   }, [isMobile]);
 
@@ -76,7 +76,9 @@ const CustomCursor = ({ active }: { active: boolean }) => {
             exit={{ opacity: 0 }}
             className="flex items-center justify-center gap-1 w-full h-full px-6 py-3"
           >
-            <span className="text-foreground font-semibold text-base whitespace-nowrap">View LinkedIn Profile</span>
+            <span className="text-foreground font-semibold text-base whitespace-nowrap">
+              View LinkedIn Profile
+            </span>
             <ArrowUpRight className="text-foreground flex-shrink-0" size={20} />
           </motion.div>
         )}
