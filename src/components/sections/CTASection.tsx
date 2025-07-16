@@ -15,7 +15,7 @@ const CTASection = () => {
             Book a Call Today and Start Scaling at Rapid rate
           </p>
           <a
-            href="https://calendly.com/YOUR-CALENDLY-USERNAME/YOUR-EVENT" // Replace with your actual Calendly link
+            href="https://calendly.com/scanpickit/30min" // Replace with your actual Calendly link
             target="_blank"
             rel="noopener noreferrer"
             className="mt-2 bg-primary hover:bg-primary/80 text-white font-semibold text-base px-8 py-3 rounded-lg inline-flex items-center gap-2 shadow-lg transition-colors"
