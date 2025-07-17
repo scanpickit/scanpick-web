@@ -41,12 +41,12 @@ const Navbar = () => {
             </Link>
           ))}
           <Link
-            href="https://calendly.com/YOUR-CALENDLY-USERNAME/YOUR-EVENT" // Replace with your actual Calendly link
+            href="https://calendly.com/scanpickit/30min"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-[#A62929] hover:bg-red-600 text-white px-4 py-2 rounded-md transition-all duration-300"
           >
-            Book a call
+            Book a call 
           </Link>
         </div>
 

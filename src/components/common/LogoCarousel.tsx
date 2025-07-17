@@ -1,13 +1,10 @@
 const LogoCarousel = () => {
   const logos = [
-    { name: "Company 1", icon: "🏢" },
-    { name: "Company 2", icon: "🔧" },
-    { name: "Company 3", icon: "⚙️" },
-    { name: "Company 4", icon: "🏭" },
-    { name: "Company 5", icon: "🔬" },
-    { name: "Company 6", icon: "💼" },
-    { name: "Company 7", icon: "🚀" },
-    { name: "Company 8", icon: "⭐" },
+    { name: "Company 1", src: "/logo.jpeg" },
+    { name: "Company 2", src: "/logo.jpeg" },
+    { name: "Company 3", src: "/logo.jpeg" },
+    { name: "Company 4", src:  "/logo.jpeg" },
+
   ];
 
   // Duplicate the array for seamless loop
@@ -19,7 +16,7 @@ const LogoCarousel = () => {
         <div className="text-center mb-12">
           <p className="text-scanpick-white/60 text-lg font-medium">
             Over 50+ business trust us
-          </p>
+          </p> 
         </div>
 
         <div className="relative overflow-hidden max-w-4xl mx-auto">
@@ -28,17 +25,14 @@ const LogoCarousel = () => {
           <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-scanpick-black to-transparent z-10" />
 
           {/* Scrolling container */}
-          <div className="flex animate-scroll space-x-image.png">
+          <div className="flex animate-scroll space-x-8">
             {duplicatedLogos.map((logo, index) => (
               <div
                 key={index}
                 className="flex items-center justify-center min-w-[200px] h-16 text-scanpick-white/40 hover:text-scanpick-white transition-colors duration-300"
               >
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">{logo.icon}</span>
-                  <span className="text-sm font-medium whitespace-nowrap">
-                    {logo.name}
-                  </span>
+                  <img src={logo.src} alt={logo.name} className="w-12 h-12 object-contain rounded-lg" />
                 </div>
               </div>
             ))}
