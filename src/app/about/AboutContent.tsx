@@ -45,16 +45,42 @@ const cardHoverEffect = {
 
 // Data
 const teamMembers = [
-  { name: "Shivam Kumar", role: "ROLE", image: "shivam.jpg", linkedin: "#" },
+  {
+    name: "Shivam Kumar",
+    role: "Mechatronics Engineer",
+    image: "shivam.jpg",
+    linkedin: "#",
+  },
   {
     name: "Tirumarredi Naresh",
-    role: "ROLE",
+    role: "Full Stack Developer",
     image: "naresh.jpg",
     linkedin: "#",
   },
-  { name: "Aarif", role: "ROLE", image: "aarif.jpg", linkedin: "#" },
-  { name: "Varun", role: "ROLE", image: "varun.jpg", linkedin: "#" },
-  { name: "Vishnu R", role: "ROLE", image: "vishnu.jpg", linkedin: "#" },
+  {
+    name: "Aarif",
+    role: "Fabrication Specialist",
+    image: "aarif.jpg",
+    linkedin: "#",
+  },  
+  {
+    name: "Varun",
+    role: "Marketing & Sales Lead",
+    image: "varun.jpg",
+    linkedin: "#",
+  },
+  {
+    name: "Vishnu R",
+    role: "App & Software Engineer",
+    image: "vishnu.jpg",
+    linkedin: "#",
+  },
+  {
+    name: "Arijit Patra",
+    role: "Manufacturing Lead",
+    image: "ARIJIT.jpg",
+    linkedin: "#",
+  },
 ];
 
 export default function AboutContent() {

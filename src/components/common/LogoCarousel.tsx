@@ -1,10 +1,11 @@
 const LogoCarousel = () => {
   const logos = [
-    { name: "Company 1", src: "/logo.jpeg" },
-    { name: "Company 2", src: "/logo.jpeg" },
-    { name: "Company 3", src: "/logo.jpeg" },
-    { name: "Company 4", src:  "/logo.jpeg" },
-
+    { name: "Company 1", src: "/logos/logo1.png" },
+    { name: "Company 2", src: "/logos/logo2.png" },
+    { name: "Company 3", src: "/logos/logo3.png" },
+    { name: "Company 4", src: "/logos/logo4.png" },
+    { name: "Company 5", src: "/logos/logo5.jpg" },
+    { name: "Company 6", src: "/logos/logo6.png" },
   ];
 
   // Duplicate the array for seamless loop
@@ -16,7 +17,7 @@ const LogoCarousel = () => {
         <div className="text-center mb-12">
           <p className="text-scanpick-white/60 text-lg font-medium">
             Over 50+ business trust us
-          </p> 
+          </p>
         </div>
 
         <div className="relative overflow-hidden max-w-4xl mx-auto">
@@ -32,7 +33,11 @@ const LogoCarousel = () => {
                 className="flex items-center justify-center min-w-[200px] h-16 text-scanpick-white/40 hover:text-scanpick-white transition-colors duration-300"
               >
                 <div className="flex items-center space-x-3">
-                  <img src={logo.src} alt={logo.name} className="w-12 h-12 object-contain rounded-lg" />
+                  <img
+                    src={logo.src}
+                    alt={logo.name}
+                    className="max-h-16 max-w-[120px] object-contain rounded-lg"
+                  />
                 </div>
               </div>
             ))}
