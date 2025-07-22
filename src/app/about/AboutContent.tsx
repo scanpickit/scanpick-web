@@ -49,7 +49,7 @@ const teamMembers = [
     name: "Shivam Kumar",
     role: "Mechatronics Engineer",
     image: "shivam.jpg",
-    linkedin: "#",
+    linkedin: "http://www.linkedin.com/in/shivam-k-r",
   },
   {
     name: "Tirumarredi Naresh",
@@ -58,28 +58,22 @@ const teamMembers = [
     linkedin: "#",
   },
   {
-    name: "Aarif",
+    name: "Shahin Aktar",
     role: "Fabrication Specialist",
     image: "aarif.jpg",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/%F0%9D%91%BA%F0%9D%92%89%F0%9D%92%82%F0%9D%92%89%F0%9D%92%8A%F0%9D%92%8F-4829b525b/",
   },  
   {
-    name: "Varun",
-    role: "Marketing & Sales Lead",
-    image: "varun.jpg",
-    linkedin: "#",
-  },
-  {
     name: "Vishnu R",
-    role: "App & Software Engineer",
+    role: "Software Developer",
     image: "vishnu.jpg",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/vishnu-r-84461386/",
   },
   {
     name: "Arijit Patra",
-    role: "Manufacturing Lead",
+    role: "Supply Chain & Operations",
     image: "ARIJIT.jpg",
-    linkedin: "#",
+    linkedin: "https://www.linkedin.com/in/arijit-patra-31a572376?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
   },
 ];
 

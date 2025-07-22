@@ -20,10 +20,8 @@ const footerLinks = {
     // { name: "404", href: "/404" },
   ],
   socials: [
-    { name: "Instagram", href: "#" },
-    { name: "Facebook", href: "#" },
-    { name: "Linkedin", href: "#" },
-    { name: "Twitter", href: "#" },
+    { name: "Instagram", href: "https://www.instagram.com/scanpick/" },
+    { name: "Linkedin", href: "https://www.linkedin.com/company/scanpick-pvt-ltd" },
   ],
 };
 

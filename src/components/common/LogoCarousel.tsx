@@ -1,7 +1,7 @@
 const LogoCarousel = () => {
   const logos = [
     { name: "Company 1", src: "/logos/logo1.png" },
-    { name: "Company 2", src: "/logos/logo2.png" },
+    { name: "Company 2", src: "/logos/logo2.jpg" },
     { name: "Company 3", src: "/logos/logo3.png" },
     { name: "Company 4", src: "/logos/logo4.png" },
     { name: "Company 5", src: "/logos/logo5.jpg" },
@@ -16,7 +16,7 @@ const LogoCarousel = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-scanpick-white/60 text-lg font-medium">
-            Over 50+ business trust us
+            Our Trusted Partners
           </p>
         </div>
 
